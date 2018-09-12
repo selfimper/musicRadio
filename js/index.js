@@ -193,19 +193,17 @@ var Fm = {
             _this.audio.currentTime = _this.audio.duration * percent
         })
 
-        this.$container.find('.btn-collect').on('click', function () {
-            var _this = this
+        this.$container.find('.btn-collect').on('click', function(){
             var $btn = $(this)
-            if ($btn.hasClass('active')) {
-                $btn.removeClass('active')
-                delete _this.collections[_this.currentSong.sid]
-            } else {
-                $(this).addClass('active')
-                console.log(_this.collections[_this.currentSong.sid])
-                _this.collections[_this.currentSong.sid] = _this.currentSong
+            if($btn.hasClass('active')){
+              $btn.removeClass('active')
+              delete _this.collections[_this.currentSong.sid]
+            }else{
+              $(this).addClass('active')
+              _this.collections[_this.currentSong.sid] = _this.currentSong
             }
             _this.saveToLocal()
-        })
+          })
 
         this.audio.addEventListener('end', function () {
             console.log('pause')
